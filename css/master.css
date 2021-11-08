@@ -771,7 +771,13 @@ header .container ul .to-mega:hover .mega {
     margin-top: 11px;
   }
 }
- @media (min-width: 1200px) {
+@media (max-width: 992px) {
+  .team .container .box .img-i .image img{
+    width: 275px;
+    height: 275px;
+  }
+}
+@media (min-width: 1200px) {
   .team .container .box .img-i .image img{
     width: 300px;
     height: 300px;
@@ -795,17 +801,33 @@ header .container ul .to-mega:hover .mega {
   box-shadow: 0 0 5px #ccc;
   text-align: center;
   position: relative;
+  transition: var(--main-transition);
 }
-.services .container .box::before{
+.services .container .box::before , 
+.services .container .box::after{
   content: "";
   position: absolute;
-  width: 50%;
+  width: 0%;
   height: 3px;
   background-color: var(--main-color);
-  top: 0px;
-  left: 50%;
-  z-index: 2
+  top: 0px;  
+  z-index: 2;
+  transition: var(--main-transition);
 }
+.services .container .box::before{
+  left: 50%;
+}
+.services .container .box::after{
+  right: 50%;
+}
+.services .container .box:hover::before ,
+.services .container .box:hover::after{
+  width: 50%;
+}
+.services .container .box:hover{
+  transform: translateY(-10px);
+}
+
 .services .container .box div:first-child{
   padding: 34px 34px 20px;
 }
@@ -864,28 +886,32 @@ header .container ul .to-mega:hover .mega {
 }
 
 /* end services */
+/* start skill */
 .skill{
   padding-top: var(--padding);
   padding-bottom: var(--padding);
 }
-.skill .container .box{
-  margin: 20px 0;
+.skill .container{
+  display: flex;
 }
-.skill .container .box >div {
+.skill .container .box {
+  width: 100%;
+}
+.skill .container .box .level >div {
   width: 100%;
   height: 30px;
   background-color: #ececec;
   border-radius: 5px;
   position: relative;
 }
-.skill .container .box >div span {
+.skill .container .box .level >div span {
   display: block;
   height: 100%;
   background-color: var(--main-color);
   border-radius: 0  5px 5px 0;
   
 }
-.skill .container .box >div span::after{
+.skill .container .box .level >div span::after{
   content: attr(data-width);
   width: 30px;
   height: 20px;
@@ -896,52 +922,175 @@ header .container ul .to-mega:hover .mega {
   border-radius: 7px;
   padding: 5px;
 }
-.skill .container .box h3{
+.skill .container .box .level h3{
   padding: 10px 0;
 }
-/* end services */
-
+@media (max-width: 767px){
+  .skill .container .image img{
+    display: none;
+  }
+}
+/* end skill */
+/* start work */
 .work{
   padding-top: var(--padding);
   padding-bottom: var(--padding);
   background-color: #ececec;
 }
-.work .main-img{
+.work  .container .main-img{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .work .main-img img{
-  max-width: 80%;
-  padding: 40px 20px;
+  padding: 20px;
 }
-.work .container >div{
+.work >.container{
+  display: flex;
+
+}
+.work .container .job > div{
   background-color: white;
-  margin: 40px 20px;
+  margin: 40px 0px;
   padding: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   max-width: 100%;
   border-radius: 5px;
 }
-.work .container >div .text{
+.work .container .job div .text{
   width: 85%;
+
 }
-.work .container >div .text h3{
+.work .container .job .text h3{
   padding: 10px 0;
+  font-size: 24px;
 }
-.work .container >div .text p{
+.work .container .job .text p{
   color: #777;
   line-height: 1.5;
+  font-size: 19px;
 }
-.work .container div .image img{
+.work .container .job .image img{
   width: 50px;
   height: 50px;
+  margin-right: 20px;
 }
 @media (max-width: 767px) {
-  .work .container >div{
+  .work .container{
     flex-direction: column;
-    text-align: center
+  }
+  .work .main-img img{
+    max-width: 100%;
+  }
+  .work .container .job > div{
+    flex-direction: column;
+    text-align: center;
+  }
+  .work .container .job .image img{
+    margin-right: 0;
   }
 }
+/* end work */
+/* start events */
+.events{
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
+}
+.events .container{}
+.events .container .box:first-child{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.events .container .box:first-child .content{
+  width: 50%;
+}
+.events .container .box:first-child  img{
+  width: 52%;
+}
+.events .container .box:first-child .content .time{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.events .container .box:first-child .content .time >div{
+  border: 2px solid;
+  border-color: #f7eded;
+  border-radius: 10px;
+}
+.events .container .box:first-child .content .time >div h2{
+  font-size: 31px;
+    color: var(--main-color);
+    padding: 10px 15px;
+}
+.events .container .box:first-child .content .time >div p{
+  text-align: center;
+  padding: 5px;
+  border-top: 2px solid;
+  border-color: #f7eded;
+}
+.events .container .box:first-child .content .text{
+  padding: 10px;
+  text-align: center;
+}
+.events .container .box:first-child .content .text h3{
+  font-size: 30px;
+    padding: 10px;
+}
+.events .container .box:first-child .content .text p{
+  padding: 10px;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #777;
+}
+.events .container .box:last-child  form{
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  margin: 20px auto;
+  padding: 25px 40px;
+  background-color: #ececec;
+  width: 61%;
+  border-radius: 50px;
+}
+.events .container .box:last-child .email{
+  background-color: white;
+  border: none;
+  padding: 15px 100px;
+  border-radius: 50px;
+  width: 76%;
+}
+.events .container .box:last-child input[type="submit"]{
+  border: none;
+  color: white;
+  background-color: var(--main-color);
+  padding: 15px 16px;
+  border-radius: 50px;
+  font-size: 17px;
+}
+@media (max-width: 767px){
+  .events .container .box:first-child .content{
+    width: 100%;
+  }
+  .events .container .box:first-child  img{
+    display: none;
+  }
+  .events .container .box:last-child {
+    flex-direction: column;
+    width: 100%;
+    border-radius: 0;
+    padding: 25px 15px;
+  }
+  .events .container .box:last-child .email{
+    padding: 20px 5px;
+    width: 100%;
+    border-radius: 0;
+  }
+  .events .container .box:last-child input[type="submit"]{
+    border-radius: 0;
+    margin-top: 10px;
+  }
+}
+/* end events */
+
