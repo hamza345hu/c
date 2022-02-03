@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>master</title>
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/all.min.css" />
     <!-- Google Fonts -->
@@ -479,19 +479,23 @@
         <div class="box">
           <div class="level">
             <h3>Html</h3>
-            <div><span data-width="80%" style="width: 80%"></span></div>
+            <div><span class="progress-level" data-width="80%" ></span></div>
+            <span class="progress-mark"></span>
           </div>
           <div class="level">
             <h3>Css</h3>
-            <div><span data-width="85%" style="width: 85%"></span></div>
+            <div><span class="progress-level" data-width="85%"></span></div>
+            <span class="progress-mark"></span>
           </div>
           <div class="level">
             <h3>javascript</h3>
-            <div><span data-width="75%" style="width: 75%"></span></div>
+            <div><span class="progress-level" data-width="75%"></span></div>
+            <span class="progress-mark"></span>
           </div>
           <div class="level">
             <h3>Python</h3>
-            <div><span data-width="80%" style="width: 80%"></span></div>
+            <div><span class="progress-level" data-width="80%"></span></div>
+            <span class="progress-mark"></span>
           </div>
         </div>
       </div>
@@ -538,19 +542,19 @@
           <div class="content">
             <div class="time">
               <div>
-                <h2>53</h2>
+                <h2 class="day">53</h2>
                 <p>Days</p>
               </div>
               <div>
-                <h2>22</h2>
+                <h2 class="hour">22</h2>
                 <p>Hours</p>
               </div>
               <div>
-                <h2>35</h2>
+                <h2 class="min">35</h2>
                 <p>Minutes</p>
               </div>
               <div>
-                <h2>15</h2>
+                <h2 class="sec">15</h2>
                 <p>Seconds</p>
               </div>
             </div>
@@ -676,22 +680,22 @@
       <div class="container">
         <div class="box">
           <i class="far fa-user"></i>
-          <p>150</p>
+          <p id="statsC" data-stats="100">0</p>
           <p>Clients</p>
         </div>
         <div class="box">
           <i class="fas fa-code"></i>
-          <p>135</p>
+          <p id="statsC" data-stats="500">0</p>
           <p>Clients</p>
         </div>
         <div class="box">
           <i class="fas fa-globe-asia"></i>
-          <p>50</p>
+          <p id="statsC" data-stats="300">0</p>
           <p>Clients</p>
         </div>
         <div class="box">
           <i class="far fa-money-bill-alt"></i>
-          <p>50</p>
+          <p id="statsC" data-stats="400">0</p>
           <p>Clients</p>
         </div>
       </div>
@@ -716,7 +720,10 @@
       </div>
     </div>
     <!-- end Discount -->
-       <script src="main.js"></script>
+    <!-- start scroll -->
+    <span class="scroll"><i class="fas fa-sort-up"></i></span>
+    <!-- end scroll -->
+      <script src="main.js"></script>
        
   </body>
 </html>
